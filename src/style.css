@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #6352ff;
+  --color-brand-light: #eeecff;
+  --color-input-focused: #6833ff;
+  --color-error: #ed2e7e;
+  --color-input-bg: #f2f4f8;
+  --color-surface: #edf2f7;
+  --color-result-hover: #f2f4f8;
+  --shadow-card: 0px 50px 100px -20px #32325d40, 0px 30px 60px -30px #00000040;
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-surface);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Vue Transitions ─── */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Staggered result items */
+@keyframes resultEnter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-enter {
+  animation: resultEnter 0.2s ease forwards;
+}
